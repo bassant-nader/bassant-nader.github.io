@@ -39,8 +39,9 @@
 
   /* ---------- SIDEBAR ---------- */
   aside{ flex:0 0 300px; background:var(--panel); padding:52px 30px; border-right:1px solid var(--rule); }
+  .identity{ text-align:center; }
   .photo{
-    width:140px; height:140px; border-radius:50%; overflow:hidden; margin-bottom:20px;
+    width:140px; height:140px; border-radius:50%; overflow:hidden; margin:0 auto 20px;
     background:var(--pine); color:#fff; display:flex; align-items:center; justify-content:center;
     font-family:'Bricolage Grotesque', sans-serif; font-weight:800; font-size:40px; position:relative;
   }
@@ -58,11 +59,22 @@
   .contact-list a{ color:var(--sky); }
   .contact-list a:hover{ text-decoration:underline; }
 
-  /* languages badges */
-  .badge-grid{ display:flex; flex-wrap:wrap; gap:9px; }
-  .badge{ display:flex; flex-direction:column; align-items:center; text-align:center; width:74px; padding:10px 4px 8px; background:#fff; border-radius:10px; border:1px solid var(--rule); }
-  .badge .ic{ width:32px; height:32px; border-radius:8px; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; font-size:12px; margin-bottom:6px; }
-  .badge .lb{ font-size:10.5px; font-weight:600; color:var(--ink-soft); line-height:1.25; }
+  /* languages — pill "buttons" */
+  .lang-list{ display:flex; flex-direction:column; gap:9px; }
+  .lang-btn{
+    display:flex; align-items:center; gap:12px;
+    background:#fff; border:1.5px solid var(--rule); border-radius:999px;
+    padding:7px 18px 7px 7px; font-size:14.5px; font-weight:700; color:var(--ink); line-height:1.2;
+  }
+  .lang-btn .ic{
+    flex:0 0 36px; height:36px; border-radius:50%;
+    display:grid; place-items:center; color:#fff; font-size:13px; font-weight:700;
+  }
+  .lang-btn small{ display:block; margin-top:2px; font-size:12.5px; font-weight:600; color:var(--ink-soft); }
+  .lang-btn.rose{ border-color:var(--rose); background:var(--rose-tint); }
+  .lang-btn.rose .ic{ background:var(--rose); }
+  .lang-btn.sky{ border-color:var(--sky); background:var(--sky-tint); }
+  .lang-btn.sky .ic{ background:var(--sky); }
 
   /* skills list */
   .skill-list{ list-style:none; display:flex; flex-direction:column; gap:8px; }
@@ -75,13 +87,14 @@
     flex:0 0 34px; height:34px; border-radius:9px;
     display:grid; place-items:center; font-size:15px; color:#fff;
   }
-  .skill .ico img{ width:18px; height:18px; display:block; }
+  .skill .ico img, .skill .ico svg{ width:18px; height:18px; display:block; }
   .ico.mint{ background:var(--mint); }
   .ico.rose{ background:var(--rose); }
   .ico.amber{ background:var(--amber); }
   .ico.sky{ background:var(--sky); }
   .ico.violet{ background:var(--violet); }
   .ico.logo{ background:#F3F7F5; border:1px solid var(--rule); }
+  .ico.dual{ display:flex; align-items:center; justify-content:center; gap:4px; flex:0 0 auto; padding:0 8px; }
 
   .tool-grid{ list-style:none; display:grid; grid-template-columns:1fr 1fr; gap:8px; }
   .tool-grid .skill{ flex-direction:column; text-align:center; gap:8px; padding:14px 8px; font-size:13px; }
@@ -112,13 +125,14 @@
   .job::before{ content:""; position:absolute; left:-6px; top:2px; width:10px; height:10px; border-radius:50%; background:var(--rose); border:2px solid var(--paper); }
   .job-head{ display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px; margin-bottom:2px; }
   .job-title{ font-weight:700; font-size:16.5px; color:var(--pine); }
-  .job-date{ font-size:12px; font-weight:700; color:#fff; background:var(--pine); padding:2px 10px; border-radius:12px; }
+  .job-date{ font-size:12px; font-weight:700; color:#fff; background:var(--pine); padding:2px 10px; border-radius:12px; white-space:nowrap; }
   .job-company{ font-size:13.5px; color:var(--ink-soft); font-weight:600; margin-bottom:8px; }
   .job ul{ padding-left:18px; max-width:66ch; }
   .job li{ font-size:14.5px; margin-bottom:5px; }
   .job li strong{ color:var(--rose); font-weight:700; }
 
   /* projects */
+  .sub-title{ font-family:'Bricolage Grotesque', sans-serif; font-weight:700; font-size:17px; color:var(--pine); margin:34px 0 14px; }
   .project{ background:#fff; border:1px solid var(--rule); border-radius:14px; padding:26px 26px 24px; margin-bottom:18px; }
   .project h3{ font-family:'Bricolage Grotesque', sans-serif; font-weight:700; font-size:21px; color:var(--pine); margin-bottom:9px; }
   .tag-row{ display:flex; flex-wrap:wrap; gap:6px; margin-bottom:14px; }
@@ -148,15 +162,47 @@
 </style>
 </head>
 <body>
+
+<!-- Inline SVG icons (no external loading, so they always show) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-powerbi" viewBox="0 0 24 24">
+      <rect x="3" y="12" width="4.5" height="9" rx="1" fill="#F2C811" opacity=".55"/>
+      <rect x="9.75" y="7.5" width="4.5" height="13.5" rx="1" fill="#F2C811" opacity=".8"/>
+      <rect x="16.5" y="3" width="4.5" height="18" rx="1" fill="#E8A800"/>
+    </symbol>
+    <symbol id="i-tableau" viewBox="0 0 24 24">
+      <g fill="#1F3F6E"><rect x="11.3" y="9.5" width="1.4" height="5"/><rect x="9.5" y="11.3" width="5" height="1.4"/></g>
+      <g fill="#E97627"><rect x="11.4" y="2.5" width="1.2" height="4"/><rect x="10" y="3.9" width="4" height="1.2"/>
+        <rect x="11.4" y="17.5" width="1.2" height="4"/><rect x="10" y="18.9" width="4" height="1.2"/></g>
+      <g fill="#5B7DB1"><rect x="2.5" y="11.4" width="4" height="1.2"/><rect x="3.9" y="10" width="1.2" height="4"/>
+        <rect x="17.5" y="11.4" width="4" height="1.2"/><rect x="18.9" y="10" width="1.2" height="4"/></g>
+    </symbol>
+    <symbol id="i-oracle" viewBox="0 0 24 24">
+      <rect x="2.5" y="7.5" width="19" height="9" rx="4.5" fill="none" stroke="#F80000" stroke-width="2.8"/>
+    </symbol>
+    <symbol id="i-canva" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="10.5" fill="#00C4CC"/>
+      <path d="M16 9 A5 5 0 1 0 16 15" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-powerpoint" viewBox="0 0 24 24">
+      <rect x="2" y="2" width="20" height="20" rx="4" fill="#D24726"/>
+      <text x="12" y="17" font-family="Arial, sans-serif" font-size="14" font-weight="700" text-anchor="middle" fill="#fff">P</text>
+    </symbol>
+  </defs>
+</svg>
+
 <div class="shell">
 
   <!-- ================= SIDEBAR ================= -->
   <aside>
-    <div class="photo">BN<img src="photo.jpg" alt="Bassant Nader" onerror="this.style.display='none'" /></div>
-    <div class="side-name">Bassant Nader Marmoush</div>
-    <div class="side-title">Product Owner with Data &amp; AI background</div>
-    <div class="side-location">📍 Cairo, Egypt</div>
-    <span class="status-pill">Open to new opportunities</span>
+    <div class="identity">
+      <div class="photo">BN<img src="photo.jpg" alt="Bassant Nader" onerror="this.style.display='none'" /></div>
+      <div class="side-name">Bassant Nader Marmoush</div>
+      <div class="side-title">Product Owner with Data &amp; AI background</div>
+      <div class="side-location">📍 Cairo, Egypt</div>
+      <span class="status-pill">Open to new opportunities</span>
+    </div>
 
     <div class="side-block">
       <div class="side-h">Contact</div>
@@ -195,19 +241,19 @@
         <li class="skill"><span class="ico logo"><img src="https://cdn.simpleicons.org/jira/0052CC" alt=""></span>Jira</li>
         <li class="skill"><span class="ico sky"><i class="fa-solid fa-database"></i></span>SQL</li>
         <li class="skill"><span class="ico logo"><img src="https://cdn.simpleicons.org/python/3776AB" alt=""></span>Python</li>
-        <li class="skill"><span class="ico logo"><img src="https://cdn.simpleicons.org/powerbi/F2C811" alt=""></span>Power BI</li>
-        <li class="skill"><span class="ico logo"><img src="https://cdn.simpleicons.org/tableau/E97627" alt=""></span>Tableau</li>
+        <li class="skill"><span class="ico logo"><svg aria-hidden="true"><use href="#i-powerbi"/></svg></span>Power BI</li>
+        <li class="skill"><span class="ico logo"><svg aria-hidden="true"><use href="#i-tableau"/></svg></span>Tableau</li>
         <li class="skill"><span class="ico logo"><img src="https://cdn.simpleicons.org/odoo/714B67" alt=""></span>Odoo ERP</li>
-        <li class="skill"><span class="ico logo"><img src="https://cdn.simpleicons.org/oracle/F80000" alt=""></span>Oracle Apps</li>
-        <li class="skill"><span class="ico logo"><img src="https://cdn.simpleicons.org/canva/00C4CC" alt=""></span>Canva &amp; PowerPoint</li>
+        <li class="skill"><span class="ico logo"><svg aria-hidden="true"><use href="#i-oracle"/></svg></span>Oracle Apps</li>
+        <li class="skill"><span class="ico logo dual"><svg aria-hidden="true"><use href="#i-canva"/></svg><svg aria-hidden="true"><use href="#i-powerpoint"/></svg></span>Canva &amp; PowerPoint</li>
       </ul>
     </div>
 
     <div class="side-block">
       <div class="side-h">Languages</div>
-      <div class="tool-grid">
-        <div class="tool"><div class="ic" style="background:var(--pine)">Ar</div><div class="lb">Arabic · Native</div></div>
-        <div class="tool"><div class="ic" style="background:var(--pine)">En</div><div class="lb">English · Professional</div></div>
+      <div class="lang-list">
+        <div class="lang-btn rose"><span class="ic">Ar</span><span>Arabic<small>Native</small></span></div>
+        <div class="lang-btn sky"><span class="ic">En</span><span>English<small>Professional</small></span></div>
       </div>
     </div>
   </aside>
@@ -247,21 +293,21 @@
     <h2 class="section-title"><span class="bar"></span>Experience<span class="rest"></span></h2>
 
     <div class="job">
-      <div class="job-head"><span class="job-title">Oracle Applications ERP Programme</span><span class="job-date">Aug 2025 – Sep 2025</span></div>
+      <div class="job-head"><span class="job-title">Enterprise Oracle Application Development Program (Oracle ERP Consulting Track)</span><span class="job-date">Aug 2025 – Sep 2025</span></div>
       <div class="job-company">Ejada</div>
       <ul>
-        <li>Trained on Oracle Applications ERP, including how catalogues and licensing are set up and managed.</li>
-        <li>Built a working understanding of how business processes map into enterprise systems.</li>
+        <li>Gained hands-on exposure to enterprise-level ERP systems, translating business requirements into structured technical specifications aligned with Oracle ERP frameworks.</li>
+        <li>Applied analytical thinking to identify data validation needs and performance gaps, supporting continuous improvement of enterprise application workflows.</li>
       </ul>
     </div>
 
     <div class="job">
-      <div class="job-head"><span class="job-title">Product Owner</span><span class="job-date">Jul 2025 – Aug 2025</span></div>
-      <div class="job-company">Suez Canal Bank · Digital Transformation Department</div>
+      <div class="job-head"><span class="job-title">Product Owner Intern – Digital Transformation Department</span><span class="job-date">Jul 2025 – Aug 2025</span></div>
+      <div class="job-company">Suez Canal Bank</div>
       <ul>
-        <li>Owned a meeting room booking app from the first idea to the finished product, working day to day with a team of developers.</li>
-        <li>Wrote user stories, managed the backlog and ran the Agile ceremonies (planning, reviews, retrospectives).</li>
-        <li>Coordinated between business stakeholders and the technical team so that what we built matched what people needed.</li>
+        <li>Collaborated with developers, designers, and analysts to translate product vision into deliverables, writing user stories and acceptance criteria in Jira.</li>
+        <li>Supported backlog prioritization based on business value, user impact, and feasibility.</li>
+        <li>Facilitated Agile ceremonies and used sprint feedback to drive iterative improvements and align features with business goals.</li>
       </ul>
     </div>
 
@@ -279,8 +325,55 @@
       <div class="solves"><strong>Solves:</strong> finding and booking a free room was slow and manual — the app makes it quick and visible for everyone.</div>
     </div>
 
-   <!-- Add a link when the project is online, for example:
-      <div class="links"><a href="https://github.com/YOUR-USERNAME/YOUR-REPO">View on GitHub</a></div> -->
+    <h3 class="sub-title">Data &amp; analytics projects on Kaggle</h3>
+
+    <div class="project">
+      <h3>Heart Failure Prediction</h3>
+      <div class="tag-row">
+        <span class="tag" style="background:var(--rose-tint); color:var(--rose)">Machine Learning</span>
+        <span class="tag" style="background:var(--sky-tint); color:var(--sky)">Python</span>
+        <span class="tag" style="background:var(--mint-tint); color:var(--mint)">Classification</span>
+      </div>
+      <p class="desc">A machine learning notebook built on the Heart Failure Prediction dataset. I explored patient data such as age, blood pressure, cholesterol and heart test results, then trained models to predict whether a patient is likely to have heart disease.</p>
+      <div class="solves"><strong>Solves:</strong> helps show which health indicators matter most, so risk can be flagged earlier.</div>
+      <div class="links"><a href="https://www.kaggle.com/code/bassantnader/heart-failure-prediction" target="_blank" rel="noopener">View on Kaggle</a></div>
+    </div>
+
+    <div class="project">
+      <h3>Spotify Data Visualization &amp; Analysis</h3>
+      <div class="tag-row">
+        <span class="tag" style="background:var(--mint-tint); color:var(--mint)">Data Visualisation</span>
+        <span class="tag" style="background:var(--sky-tint); color:var(--sky)">Python</span>
+        <span class="tag" style="background:var(--violet-tint); color:var(--violet)">EDA</span>
+      </div>
+      <p class="desc">An exploratory analysis of Spotify music data. I cleaned the data and used charts to look at how track features, artists and popularity relate to each other.</p>
+      <div class="solves"><strong>Solves:</strong> turns a large music dataset into clear visuals that show what makes a track popular.</div>
+      <div class="links"><a href="https://www.kaggle.com/code/bassantnader/spotify-data-visualization-and-analysis" target="_blank" rel="noopener">View on Kaggle</a></div>
+    </div>
+
+    <div class="project">
+      <h3>Banking Churn Analysis &amp; Modelling</h3>
+      <div class="tag-row">
+        <span class="tag" style="background:var(--amber-tint); color:var(--amber)">Churn Analysis</span>
+        <span class="tag" style="background:var(--rose-tint); color:var(--rose)">Machine Learning</span>
+        <span class="tag" style="background:var(--sky-tint); color:var(--sky)">Python</span>
+      </div>
+      <p class="desc">An analysis of bank customer data to understand why customers leave. I looked at the patterns behind churn, then built models to predict which customers are most likely to go.</p>
+      <div class="solves"><strong>Solves:</strong> gives a bank an early warning on at-risk customers, so it can act before they leave.</div>
+      <div class="links"><a href="https://www.kaggle.com/code/bassantnader/banking-churn-analysis-and-modelling" target="_blank" rel="noopener">View on Kaggle</a></div>
+    </div>
+
+    <div class="project">
+      <h3>Company Employees EDA</h3>
+      <div class="tag-row">
+        <span class="tag" style="background:var(--violet-tint); color:var(--violet)">EDA</span>
+        <span class="tag" style="background:var(--mint-tint); color:var(--mint)">Data Cleaning</span>
+        <span class="tag" style="background:var(--sky-tint); color:var(--sky)">Python</span>
+      </div>
+      <p class="desc">An exploratory data analysis of a company's employee records. I cleaned the data and compared groups such as departments, roles and experience to find patterns in the workforce.</p>
+      <div class="solves"><strong>Solves:</strong> gives HR and managers a clear picture of their workforce to support better decisions.</div>
+      <div class="links"><a href="https://www.kaggle.com/code/bassantnader/company-employees-eda" target="_blank" rel="noopener">View on Kaggle</a></div>
+    </div>
 
     <!-- ================= EDUCATION ================= -->
     <h2 class="section-title"><span class="bar"></span>Education &amp; Certifications<span class="rest"></span></h2>
