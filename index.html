@@ -8,7 +8,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-<style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
   /* ===== COLOUR PALETTE — change any colour here and the whole page updates ===== */
   :root{
     --paper:#F6F8F5;
@@ -61,18 +62,28 @@
   .badge{ display:flex; flex-direction:column; align-items:center; text-align:center; width:74px; padding:10px 4px 8px; background:#fff; border-radius:10px; border:1px solid var(--rule); }
   .badge .ic{ width:32px; height:32px; border-radius:8px; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; font-size:12px; margin-bottom:6px; }
   .badge .lb{ font-size:10.5px; font-weight:600; color:var(--ink-soft); line-height:1.25; }
+<style>
+  .skill-list{ list-style:none; display:flex; flex-direction:column; gap:8px; }
+  .skill{
+    display:flex; align-items:center; gap:12px;
+    background:#fff; border:1px solid var(--rule); border-radius:12px;
+    padding:9px 12px; font-size:14px; font-weight:600; line-height:1.25; color:var(--ink);
+  }
+  .skill .ico{
+    flex:0 0 34px; height:34px; border-radius:9px;
+    display:grid; place-items:center; font-size:15px; color:#fff;
+  }
+  .skill .ico img{ width:18px; height:18px; display:block; }
+  .ico.mint{ background:var(--mint); }
+  .ico.rose{ background:var(--rose); }
+  .ico.amber{ background:var(--amber); }
+  .ico.sky{ background:var(--sky); }
+  .ico.violet{ background:var(--violet); }
+  .ico.logo{ background:#F3F7F5; border:1px solid var(--rule); }
 
-  /* ---------- Buttons ---------- */
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;
-  min-height:46px;padding:0 20px;border-radius:10px;
-  font:600 .975rem/1 var(--body);text-decoration:none;
-  border:1.5px solid var(--accent);background:var(--accent);color:#fff;
-}
-.btn:hover{background:var(--ink);border-color:var(--ink);color:#fff}
-.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
-.btn.ghost:hover{border-color:var(--ink);background:var(--surface);color:var(--ink)}
-.btn-row{display:flex;flex-wrap:wrap;gap:10px}
+  .tool-grid{ list-style:none; display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+  .tool-grid .skill{ flex-direction:column; text-align:center; gap:8px; padding:14px 8px; font-size:13px; }
+</style>
   
   /* ---------- MAIN ---------- */
   main{ flex:1 1 480px; min-width:0; padding:52px 50px 90px; }
@@ -117,7 +128,7 @@
   .links{ display:flex; flex-wrap:wrap; gap:10px; margin-top:16px; }
   .links a{ display:inline-block; font-size:13.5px; font-weight:700; color:var(--pine); text-decoration:none; padding:9px 16px; border:2px solid var(--pine); border-radius:20px; transition:background .15s ease, color .15s ease; }
   .links a:hover, .links a:focus-visible{ background:var(--pine); color:#fff; outline:none; }
-  
+
 
   /* education / certs */
   .edu-row{ font-size:15px; font-weight:600; margin-bottom:10px; }
@@ -143,7 +154,7 @@
   <aside>
     <div class="photo">BN<img src="photo.jpg" alt="Bassant Nader" onerror="this.style.display='none'" /></div>
     <div class="side-name">Bassant Nader Marmoush</div>
-    <div class="side-title">Product Owner&amp; Data AI background</div>
+    <div class="side-title">Product Owner with Data &amp; AI background</div>
     <div class="side-location">📍 Cairo, Egypt</div>
     <span class="status-pill">Open to new opportunities</span>
 
@@ -156,32 +167,41 @@
         <a href="https://drive.google.com/file/d/1ejEzpphMpGL5DL_k1igT2OvExvZfqoYJ/view?usp=sharing">My CV</a>
       </div>
     </div>
-
-    <div class="side-block">
-      <div class="side-h">Product skills</div>
-      <div class="badge-grid">
-        <div class="badge"><div class="ic" style="background:var(--mint)">AG</div><div class="lb">Agile / Scrum</div></div>
-        <div class="badge"><div class="ic" style="background:var(--sky)">US</div><div class="lb">User Stories</div></div>
-        <div class="badge"><div class="ic" style="background:var(--amber)">BO</div><div class="lb">Backlog Management</div></div>
-        <div class="badge"><div class="ic" style="background:var(--violet)">SH</div><div class="lb">Stakeholder Coordination</div></div>
-        <div class="badge"><div class="ic" style="background:var(--rose)">RQ</div><div class="lb">Requirements Gathering</div></div>
-        <div class="badge"><div class="ic" style="background:var(--mint)">UA</div><div class="lb">UAT Support</div></div>
-      </div>
+<div class="side-block">
+      <div class="side-h">Product &amp; Agile</div>
+      <ul class="skill-list">
+        <li class="skill"><span class="ico mint"><i class="fa-solid fa-arrows-spin"></i></span>Agile &amp; Scrum</li>
+        <li class="skill"><span class="ico amber"><i class="fa-solid fa-list-check"></i></span>Backlog Management</li>
+        <li class="skill"><span class="ico rose"><i class="fa-solid fa-book-open"></i></span>User Stories</li>
+        <li class="skill"><span class="ico sky"><i class="fa-solid fa-flag-checkered"></i></span>Sprint Planning &amp; Reviews</li>
+        <li class="skill"><span class="ico violet"><i class="fa-solid fa-ranking-star"></i></span>Prioritisation</li>
+      </ul>
     </div>
 
     <div class="side-block">
-      <div class="side-h">Data &amp; tools</div>
-      <div class="badge-grid">
-        <div class="badge"><div class="ic" style="background:var(--sky)">Ji</div><div class="lb">Jira</div></div>
-        <div class="badge"><div class="ic" style="background:var(--rose)">SQ</div><div class="lb">SQL</div></div>
-        <div class="badge"><div class="ic" style="background:var(--amber)">Py</div><div class="lb">Python</div></div>
-        <div class="badge"><div class="ic" style="background:var(--violet)">PB</div><div class="lb">Power BI</div></div>
-        <div class="badge"><div class="ic" style="background:var(--mint)">Tb</div><div class="lb">Tableau</div></div>
-        <div class="badge"><div class="ic" style="background:var(--sky)">Od</div><div class="lb">Odoo ERP</div></div>
-        <div class="badge"><div class="ic" style="background:var(--rose)">Or</div><div class="lb">Oracle Apps</div></div>
-        <div class="badge"><div class="ic" style="background:var(--amber)">Cv</div><div class="lb">Canva &amp; PowerPoint</div></div>
-      </div>
+      <div class="side-h">Business Analysis</div>
+      <ul class="skill-list">
+        <li class="skill"><span class="ico rose"><i class="fa-solid fa-comments"></i></span>Requirements Gathering</li>
+        <li class="skill"><span class="ico amber"><i class="fa-solid fa-people-arrows"></i></span>Stakeholder Coordination</li>
+        <li class="skill"><span class="ico mint"><i class="fa-solid fa-clipboard-check"></i></span>UAT Support</li>
+        <li class="skill"><span class="ico sky"><i class="fa-solid fa-diagram-project"></i></span>Process Mapping</li>
+      </ul>
     </div>
+
+    <div class="side-block">
+      <div class="side-h">Tools</div>
+      <ul class="tool-grid">
+        <li class="skill"><span class="ico logo"><img src="https://cdn.simpleicons.org/jira/0052CC" alt=""></span>Jira</li>
+        <li class="skill"><span class="ico sky"><i class="fa-solid fa-database"></i></span>SQL</li>
+        <li class="skill"><span class="ico logo"><img src="https://cdn.simpleicons.org/python/3776AB" alt=""></span>Python</li>
+        <li class="skill"><span class="ico logo"><img src="https://cdn.simpleicons.org/powerbi/F2C811" alt=""></span>Power BI</li>
+        <li class="skill"><span class="ico logo"><img src="https://cdn.simpleicons.org/tableau/E97627" alt=""></span>Tableau</li>
+        <li class="skill"><span class="ico logo"><img src="https://cdn.simpleicons.org/odoo/714B67" alt=""></span>Odoo ERP</li>
+        <li class="skill"><span class="ico logo"><img src="https://cdn.simpleicons.org/oracle/F80000" alt=""></span>Oracle Apps</li>
+        <li class="skill"><span class="ico logo"><img src="https://cdn.simpleicons.org/canva/00C4CC" alt=""></span>Canva &amp; PowerPoint</li>
+      </ul>
+    </div>
+
 
     <div class="side-block">
       <div class="side-h">Languages</div>
@@ -248,7 +268,7 @@
     <!-- ================= PROJECTS ================= -->
     <h2 class="section-title"><span class="bar"></span>Projects<span class="rest"></span></h2>
 
-    <div class="project">
+    /*<div class="project">
       <h3>Meeting Room Booking App — Suez Canal Bank</h3>
       <div class="tag-row">
         <span class="tag" style="background:var(--mint-tint); color:var(--mint)">Product Ownership</span>
@@ -279,7 +299,7 @@
       </div>
       <p class="desc">A presentation pitching an Odoo solution to Lumora, a furniture company, from the point of view of an implementation partner. It covers Sales, CRM, Inventory, Manufacturing, Purchase and Accounting.</p>
       <div class="solves"><strong>Solves:</strong> a furniture business needs its sales, stock and production to talk to each other — this shows how one system can do that.</div>
-    </div>
+    </div>*/
 
     <!-- ================= EDUCATION ================= -->
     <h2 class="section-title"><span class="bar"></span>Education &amp; Certifications<span class="rest"></span></h2>
