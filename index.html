@@ -1,1 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bassant Nader — Product Owner Portfolio</title>
+<meta name="description" content="Bassant Nader — Product Owner with a data and AI background, based in Cairo, Egypt." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ===== COLOUR PALETTE — change any colour here and the whole page updates ===== */
+  :root{
+    --paper:#F6F8F5;
+    --panel:#E6EEE8;
+    --pine:#12433B;      /* main dark colour (headings, buttons) */
+    --ink:#1D2523;
+    --ink-soft:#5A6662;
+    --rule:#CFDAD3;
 
+    --rose:#B83A6B;      --rose-tint:#F8E3EB;
+    --amber:#C98A1B;     --amber-tint:#FBEFD5;
+    --sky:#2F6FA3;       --sky-tint:#DFEBF5;
+    --violet:#7A4FB0;    --violet-tint:#EBE2F5;
+    --mint:#2E8B6E;      --mint-tint:#D9EFE6;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Nunito Sans', sans-serif;
+    line-height:1.65;
+    font-size:16.5px;
+    font-weight:400;
+  }
+  .shell{ display:flex; flex-wrap:wrap; max-width:1180px; margin:0 auto; min-height:100vh; }
+
+  /* ---------- SIDEBAR ---------- */
+  aside{ flex:0 0 300px; background:var(--panel); padding:52px 30px; border-right:1px solid var(--rule); }
+  .photo{
+    width:130px; height:130px; border-radius:50%; overflow:hidden; margin-bottom:20px;
+    background:var(--pine); color:#fff; display:flex; align-items:center; justify-content:center;
+    font-family:'Bricolage Grotesque', sans-serif; font-weight:800; font-size:40px; position:relative;
+  }
+  .photo img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
+  .side-name{ font-family:'Bricolage Grotesque', sans-serif; font-weight:800; font-size:28px; color:var(--pine); line-height:1.15; }
+  .side-title{ margin-top:7px; font-size:14px; font-weight:700; color:var(--rose); }
+  .side-location{ margin-top:9px; font-size:14px; color:var(--ink-soft); }
+  .status-pill{
+    display:inline-block; margin-top:16px; font-size:12.5px; font-weight:700; color:#fff;
+    background:var(--mint); padding:7px 13px; border-radius:20px;
+  }
+  .side-block{ margin-top:32px; }
+  .side-h{ font-size:13px; font-weight:700; color:var(--pine); margin-bottom:13px; border-bottom:2px solid var(--rose); display:inline-block; padding-bottom:3px; }
+  .contact-list a, .contact-list div{ display:block; font-size:14px; font-weight:600; color:var(--ink); text-decoration:none; margin-bottom:9px; word-break:break-word; }
+  .contact-list a{ color:var(--sky); }
+  .contact-list a:hover{ text-decoration:underline; }
+
+  .badge-grid{ display:flex; flex-wrap:wrap; gap:9px; }
+  .badge{ display:flex; flex-direction:column; align-items:center; text-align:center; width:74px; padding:10px 4px 8px; background:#fff; border-radius:10px; border:1px solid var(--rule); }
+  .badge .ic{ width:32px; height:32px; border-radius:8px; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; font-size:12px; margin-bottom:6px; }
+  .badge .lb{ font-size:10.5px; font-weight:600; color:var(--ink-soft); line-height:1.25; }
+
+  /* ---------- MAIN ---------- */
+  main{ flex:1 1 480px; min-width:0; padding:52px 50px 90px; }
+  .opp-banner{ display:inline-flex; align-items:center; gap:10px; background:var(--rose-tint); border-radius:30px; padding:9px 18px; margin-bottom:22px; }
+  .opp-banner .dot{ width:8px; height:8px; border-radius:50%; background:var(--rose); }
+  .opp-banner span{ font-size:13px; font-weight:700; color:var(--pine); }
+
+  .hero-title{ font-family:'Bricolage Grotesque', sans-serif; font-weight:800; font-size:36px; color:var(--pine); margin-bottom:16px; line-height:1.15; }
+  .hero-intro{ max-width:66ch; font-size:16.5px; }
+  .hero-intro strong{ color:var(--pine); font-weight:700; }
+
+  .value-row{ display:flex; flex-wrap:wrap; gap:12px; margin:36px 0 10px; }
+  .value-card{ flex:1 1 150px; background:#fff; border-radius:12px; padding:16px 14px; border:1px solid var(--rule); }
+  .value-card .vi{ width:38px; height:38px; border-radius:10px; display:flex; align-items:center; justify-content:center; margin-bottom:12px; }
+  .value-card .vi svg{ width:19px; height:19px; }
+  .value-card .vt{ font-family:'Bricolage Grotesque', sans-serif; font-weight:700; font-size:16px; color:var(--pine); margin-bottom:5px; }
+  .value-card .vd{ font-size:13px; color:var(--ink-soft); line-height:1.45; }
+
+  h2.section-title{ display:flex; align-items:center; gap:12px; font-family:'Bricolage Grotesque', sans-serif; font-weight:800; font-size:23px; color:var(--pine); margin:54px 0 26px; }
+  h2.section-title .bar{ flex:0 0 46px; height:5px; border-radius:3px; background:var(--rose); }
+  h2.section-title .rest{ flex:1; height:1px; background:var(--rule); }
+
+  /* experience */
+  .job{ position:relative; padding-left:22px; margin-bottom:26px; border-left:2px solid var(--rule); }
+  .job::before{ content:""; position:absolute; left:-6px; top:2px; width:10px; height:10px; border-radius:50%; background:var(--rose); border:2px solid var(--paper); }
+  .job-head{ display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px; margin-bottom:2px; }
+  .job-title{ font-weight:700; font-size:16.5px; color:var(--pine); }
+  .job-date{ font-size:12px; font-weight:700; color:#fff; background:var(--pine); padding:2px 10px; border-radius:12px; }
+  .job-company{ font-size:13.5px; color:var(--ink-soft); font-weight:600; margin-bottom:8px; }
+  .job ul{ padding-left:18px; max-width:66ch; }
+  .job li{ font-size:14.5px; margin-bottom:5px; }
+  .job li strong{ color:var(--rose); font-weight:700; }
+
+  /* projects */
+  .project{ background:#fff; border:1px solid var(--rule); border-radius:14px; padding:26px 26px 24px; margin-bottom:18px; }
+  .project h3{ font-family:'Bricolage Grotesque', sans-serif; font-weight:700; font-size:21px; color:var(--pine); margin-bottom:9px; }
+  .tag-row{ display:flex; flex-wrap:wrap; gap:6px; margin-bottom:14px; }
+  .tag{ font-size:12px; font-weight:700; padding:4px 10px; border-radius:14px; }
+  .project p.desc{ max-width:62ch; font-size:14.5px; margin-bottom:14px; }
+  .solves{ font-size:14px; background:var(--panel); padding:11px 14px; border-radius:8px; max-width:64ch; }
+  .solves strong{ color:var(--rose); font-weight:700; }
+  .links{ display:flex; flex-wrap:wrap; gap:10px; margin-top:16px; }
+  .links a{ display:inline-block; font-size:13.5px; font-weight:700; color:var(--pine); text-decoration:none; padding:9px 16px; border:2px solid var(--pine); border-radius:20px; transition:background .15s ease, color .15s ease; }
+  .links a:hover, .links a:focus-visible{ background:var(--pine); color:#fff; outline:none; }
+
+  /* education / certs */
+  .edu-row{ font-size:15px; font-weight:600; margin-bottom:10px; }
+  .edu-row small{ display:block; font-weight:400; color:var(--ink-soft); font-size:13.5px; }
+  .cert-grid{ display:flex; flex-wrap:wrap; gap:9px; margin-top:20px; }
+  .cert-pill{ font-size:13px; font-weight:600; color:var(--pine); background:var(--panel); padding:7px 13px; border-radius:14px; }
+
+  footer{ margin-top:60px; padding:26px; border-radius:14px; background:var(--pine); font-size:16px; color:#fff; font-weight:600; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
+  footer a{ color:var(--pine); text-decoration:none; font-weight:700; background:#fff; padding:9px 18px; border-radius:20px; }
+  footer a:hover, footer a:focus-visible{ background:var(--rose-tint); outline:none; }
+
+  @media (max-width:860px){
+    aside{ flex:1 1 100%; border-right:none; border-bottom:1px solid var(--rule); }
+    main{ flex:1 1 100%; padding:42px 22px 70px; }
+    .hero-title{ font-size:30px; }
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <!-- ================= SIDEBAR ================= -->
+  <aside>
+    <!-- To show your photo: save it in the same folder as this file and name it photo.jpg. Until then, your initials show. -->
+    <div class="photo">BN<img src="photo.jpg" alt="Bassant Nader" onerror="this.style.display='none'" /></div>
+    <div class="side-name">Bassant Nader</div>
+    <div class="side-title">Product Owner · Data &amp; AI background</div>
+    <div class="side-location">📍 Cairo, Egypt</div>
+    <span class="status-pill">Open to new opportunities</span>
+
+    <div class="side-block">
+      <div class="side-h">Contact</div>
+      <div class="contact-list">
+        <a href="mailto:basantnaader@gmail.com">basantnaader@gmail.com</a>
+        <div>+20 100 674 4157</div>
+        <!-- TODO: replace with your real LinkedIn address -->
+        <a href="https://www.linkedin.com/in/YOUR-LINKEDIN-NAME">LinkedIn profile</a>
+      </div>
+    </div>
+
+    <div class="side-block">
+      <div class="side-h">Product skills</div>
+      <div class="badge-grid">
+        <div class="badge"><div class="ic" style="background:var(--mint)">AG</div><div class="lb">Agile / Scrum</div></div>
+        <div class="badge"><div class="ic" style="background:var(--sky)">US</div><div class="lb">User Stories</div></div>
+        <div class="badge"><div class="ic" style="background:var(--amber)">BO</div><div class="lb">Backlog Management</div></div>
+        <div class="badge"><div class="ic" style="background:var(--violet)">SH</div><div class="lb">Stakeholder Coordination</div></div>
+        <div class="badge"><div class="ic" style="background:var(--rose)">RQ</div><div class="lb">Requirements Gathering</div></div>
+        <div class="badge"><div class="ic" style="background:var(--mint)">UA</div><div class="lb">UAT Support</div></div>
+      </div>
+    </div>
+
+    <div class="side-block">
+      <div class="side-h">Data &amp; tools</div>
+      <div class="badge-grid">
+        <div class="badge"><div class="ic" style="background:var(--sky)">Ji</div><div class="lb">Jira</div></div>
+        <div class="badge"><div class="ic" style="background:var(--rose)">SQ</div><div class="lb">SQL</div></div>
+        <div class="badge"><div class="ic" style="background:var(--amber)">Py</div><div class="lb">Python</div></div>
+        <div class="badge"><div class="ic" style="background:var(--violet)">PB</div><div class="lb">Power BI</div></div>
+        <div class="badge"><div class="ic" style="background:var(--mint)">Tb</div><div class="lb">Tableau</div></div>
+        <div class="badge"><div class="ic" style="background:var(--sky)">Od</div><div class="lb">Odoo ERP</div></div>
+        <div class="badge"><div class="ic" style="background:var(--rose)">Or</div><div class="lb">Oracle Apps</div></div>
+        <div class="badge"><div class="ic" style="background:var(--amber)">Cv</div><div class="lb">Canva &amp; PowerPoint</div></div>
+      </div>
+    </div>
+
+    <div class="side-block">
+      <div class="side-h">Languages</div>
+      <div class="badge-grid">
+        <div class="badge"><div class="ic" style="background:var(--pine)">Ar</div><div class="lb">Arabic · Native</div></div>
+        <div class="badge"><div class="ic" style="background:var(--pine)">En</div><div class="lb">English · Professional</div></div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ================= MAIN ================= -->
+  <main>
+    <div class="opp-banner"><span class="dot"></span><span>Open to Product Owner and business analysis roles</span></div>
+    <div class="hero-title">I turn business needs into products people actually use.</div>
+    <p class="hero-intro">
+      I'm a <strong>business graduate from Ain Shams University</strong> (Excellent with Honours, 2026), based in Cairo and building a career as a Product Owner. What sets me apart is the data side: I'm comfortable in <strong>SQL, Python, Power BI and Tableau</strong>, so I can go from a stakeholder's idea to clear user stories, and then use numbers to check whether the product is doing its job. I've worked in an Agile team of developers, built a full product from start to finish, and I'm now growing my skills in ERP systems and AI-enabled products.
+    </p>
+
+    <div class="value-row">
+      <div class="value-card">
+        <div class="vi" style="background:var(--mint)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="10.5" cy="10.5" r="6.5"/><line x1="20" y1="20" x2="15.5" y2="15.5"/></svg></div>
+        <div class="vt">Discover</div>
+        <div class="vd">Listen to users and stakeholders, and find the real problem.</div>
+      </div>
+      <div class="value-card">
+        <div class="vi" style="background:var(--amber)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="5" y="4" width="14" height="17" rx="1.5"/><line x1="8" y1="9" x2="16" y2="9"/><line x1="8" y1="13" x2="16" y2="13"/></svg></div>
+        <div class="vt">Define</div>
+        <div class="vd">Turn it into clear user stories and a prioritised backlog.</div>
+      </div>
+      <div class="value-card">
+        <div class="vi" style="background:var(--violet)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 2c2 3 3 6 3 9 0 3-1 5-3 6-2-1-3-3-3-6 0-3 1-6 3-9z"/><path d="M9 15l-3 4M15 15l3 4"/></svg></div>
+        <div class="vt">Deliver</div>
+        <div class="vd">Run the Agile ceremonies and keep the team moving.</div>
+      </div>
+      <div class="value-card">
+        <div class="vi" style="background:var(--sky)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><line x1="5" y1="20" x2="5" y2="12"/><line x1="12" y1="20" x2="12" y2="6"/><line x1="19" y1="20" x2="19" y2="14"/></svg></div>
+        <div class="vt">Measure</div>
+        <div class="vd">Use SQL, Power BI and Tableau to see what is really happening.</div>
+      </div>
+    </div>
+
+    <!-- ================= EXPERIENCE ================= -->
+    <h2 class="section-title"><span class="bar"></span>Experience<span class="rest"></span></h2>
+
+    <div class="job">
+      <div class="job-head"><span class="job-title">Product Owner</span><span class="job-date">TODO: add dates</span></div>
+      <div class="job-company">Suez Canal Bank · Digital Transformation Department</div>
+      <ul>
+        <li>Owned a meeting room booking app from the first idea to the finished product, working day to day with a team of developers.</li>
+        <li>Wrote user stories, managed the backlog and ran the Agile ceremonies (planning, reviews, retrospectives).</li>
+        <li>Coordinated between business stakeholders and the technical team so that what we built matched what people needed.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head"><span class="job-title">Oracle Applications ERP Programme</span><span class="job-date">TODO: add dates</span></div>
+      <div class="job-company">Ejada</div>
+      <ul>
+        <li>Trained on Oracle Applications ERP, including how catalogues and licensing are set up and managed.</li>
+        <li>Built a working understanding of how business processes map into enterprise systems.</li>
+      </ul>
+    </div>
+
+    <!-- ================= PROJECTS ================= -->
+    <h2 class="section-title"><span class="bar"></span>Projects<span class="rest"></span></h2>
+
+    <div class="project">
+      <h3>Meeting Room Booking App — Suez Canal Bank</h3>
+      <div class="tag-row">
+        <span class="tag" style="background:var(--mint-tint); color:var(--mint)">Product Ownership</span>
+        <span class="tag" style="background:var(--amber-tint); color:var(--amber)">Agile</span>
+        <span class="tag" style="background:var(--sky-tint); color:var(--sky)">User Stories</span>
+      </div>
+      <p class="desc">An internal app for booking meeting rooms, built inside the bank's Digital Transformation department. I owned it from the start, from gathering needs to working with developers on delivery.</p>
+      <div class="solves"><strong>Solves:</strong> finding and booking a free room was slow and manual — the app makes it quick and visible for everyone.</div>
+    </div>
+
+    <div class="project">
+      <h3>MarketLine — Odoo ERP Demo</h3>
+      <div class="tag-row">
+        <span class="tag" style="background:var(--violet-tint); color:var(--violet)">Odoo ERP</span>
+        <span class="tag" style="background:var(--rose-tint); color:var(--rose)">Retail &amp; Distribution</span>
+      </div>
+      <p class="desc">A demo Odoo database for a realistic Egyptian retail and distribution company, built as part of my Odoo Functional Implementation Consultant course.</p>
+      <div class="solves"><strong>Solves:</strong> shows how sales, stock and purchasing can run in one connected system instead of separate spreadsheets.</div>
+      <!-- Add a link when the project is online, for example:
+      <div class="links"><a href="https://github.com/YOUR-USERNAME/YOUR-REPO">View on GitHub</a></div> -->
+    </div>
+
+    <div class="project">
+      <h3>Lumora — Odoo Solution Proposal</h3>
+      <div class="tag-row">
+        <span class="tag" style="background:var(--sky-tint); color:var(--sky)">Odoo ERP</span>
+        <span class="tag" style="background:var(--amber-tint); color:var(--amber)">Presentation</span>
+      </div>
+      <p class="desc">A presentation pitching an Odoo solution to Lumora, a furniture company, from the point of view of an implementation partner. It covers Sales, CRM, Inventory, Manufacturing, Purchase and Accounting.</p>
+      <div class="solves"><strong>Solves:</strong> a furniture business needs its sales, stock and production to talk to each other — this shows how one system can do that.</div>
+    </div>
+
+    <!-- ================= EDUCATION ================= -->
+    <h2 class="section-title"><span class="bar"></span>Education &amp; Certifications<span class="rest"></span></h2>
+    <div class="edu-row">🎓 Bachelor's in Business — Ain Shams University, Cairo<small>Graduated June 2026 · Excellent with Honours</small></div>
+    <div class="edu-row">🎓 Postgraduate Diploma in Information Technology and Business — Faculty of Computer Science, Ain Shams University<small>2026 – expected 2028</small></div>
+    <div class="cert-grid">
+      <span class="cert-pill">DEPI · IBM Data Scientist Track</span>
+      <span class="cert-pill">IBM · Python for Data Science</span>
+      <span class="cert-pill">Odoo ERP Functional Implementation Consultant</span>
+      <span class="cert-pill">PSPO I preparation (LinkedIn Learning)</span>
+      <span class="cert-pill">GAIC / Sprints</span>
+    </div>
+
+    <footer>
+      <span>Let's talk about how I can help your team.</span>
+      <a href="mailto:basantnaader@gmail.com">Get in touch</a>
+    </footer>
+  </main>
+
+</div>
+</body>
+</html>
