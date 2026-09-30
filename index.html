@@ -9,12 +9,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <style>
+<style>
   /* ===== COLOUR PALETTE — change any colour here and the whole page updates ===== */
   :root{
     --paper:#F6F8F5;
     --panel:#E6EEE8;
-    --pine:#12433B;    
+    --pine:#12433B;
     --ink:#1D2523;
     --ink-soft:#5A6662;
     --rule:#CFDAD3;
@@ -58,11 +58,13 @@
   .contact-list a{ color:var(--sky); }
   .contact-list a:hover{ text-decoration:underline; }
 
+  /* languages badges */
   .badge-grid{ display:flex; flex-wrap:wrap; gap:9px; }
   .badge{ display:flex; flex-direction:column; align-items:center; text-align:center; width:74px; padding:10px 4px 8px; background:#fff; border-radius:10px; border:1px solid var(--rule); }
   .badge .ic{ width:32px; height:32px; border-radius:8px; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; font-size:12px; margin-bottom:6px; }
   .badge .lb{ font-size:10.5px; font-weight:600; color:var(--ink-soft); line-height:1.25; }
-<style>
+
+  /* skills list */
   .skill-list{ list-style:none; display:flex; flex-direction:column; gap:8px; }
   .skill{
     display:flex; align-items:center; gap:12px;
@@ -83,8 +85,7 @@
 
   .tool-grid{ list-style:none; display:grid; grid-template-columns:1fr 1fr; gap:8px; }
   .tool-grid .skill{ flex-direction:column; text-align:center; gap:8px; padding:14px 8px; font-size:13px; }
-</style>
-  
+
   /* ---------- MAIN ---------- */
   main{ flex:1 1 480px; min-width:0; padding:52px 50px 90px; }
   .opp-banner{ display:inline-flex; align-items:center; gap:10px; background:var(--rose-tint); border-radius:30px; padding:9px 18px; margin-bottom:22px; }
@@ -129,7 +130,6 @@
   .links a{ display:inline-block; font-size:13.5px; font-weight:700; color:var(--pine); text-decoration:none; padding:9px 16px; border:2px solid var(--pine); border-radius:20px; transition:background .15s ease, color .15s ease; }
   .links a:hover, .links a:focus-visible{ background:var(--pine); color:#fff; outline:none; }
 
-
   /* education / certs */
   .edu-row{ font-size:15px; font-weight:600; margin-bottom:10px; }
   .edu-row small{ display:block; font-weight:400; color:var(--ink-soft); font-size:13.5px; }
@@ -167,7 +167,8 @@
         <a href="https://drive.google.com/file/d/1ejEzpphMpGL5DL_k1igT2OvExvZfqoYJ/view?usp=sharing">My CV</a>
       </div>
     </div>
-<div class="side-block">
+
+    <div class="side-block">
       <div class="side-h">Product &amp; Agile</div>
       <ul class="skill-list">
         <li class="skill"><span class="ico mint"><i class="fa-solid fa-arrows-spin"></i></span>Agile &amp; Scrum</li>
@@ -201,7 +202,6 @@
         <li class="skill"><span class="ico logo"><img src="https://cdn.simpleicons.org/canva/00C4CC" alt=""></span>Canva &amp; PowerPoint</li>
       </ul>
     </div>
-
 
     <div class="side-block">
       <div class="side-h">Languages</div>
@@ -245,8 +245,8 @@
 
     <!-- ================= EXPERIENCE ================= -->
     <h2 class="section-title"><span class="bar"></span>Experience<span class="rest"></span></h2>
-    
- <div class="job">
+
+    <div class="job">
       <div class="job-head"><span class="job-title">Oracle Applications ERP Programme</span><span class="job-date">Aug 2025 – Sep 2025</span></div>
       <div class="job-company">Ejada</div>
       <ul>
@@ -254,7 +254,7 @@
         <li>Built a working understanding of how business processes map into enterprise systems.</li>
       </ul>
     </div>
-    
+
     <div class="job">
       <div class="job-head"><span class="job-title">Product Owner</span><span class="job-date">Jul 2025 – Aug 2025</span></div>
       <div class="job-company">Suez Canal Bank · Digital Transformation Department</div>
@@ -264,11 +264,11 @@
         <li>Coordinated between business stakeholders and the technical team so that what we built matched what people needed.</li>
       </ul>
     </div>
-    
+
     <!-- ================= PROJECTS ================= -->
     <h2 class="section-title"><span class="bar"></span>Projects<span class="rest"></span></h2>
 
-    /*<div class="project">
+    <div class="project">
       <h3>Meeting Room Booking App — Suez Canal Bank</h3>
       <div class="tag-row">
         <span class="tag" style="background:var(--mint-tint); color:var(--mint)">Product Ownership</span>
@@ -299,7 +299,7 @@
       </div>
       <p class="desc">A presentation pitching an Odoo solution to Lumora, a furniture company, from the point of view of an implementation partner. It covers Sales, CRM, Inventory, Manufacturing, Purchase and Accounting.</p>
       <div class="solves"><strong>Solves:</strong> a furniture business needs its sales, stock and production to talk to each other — this shows how one system can do that.</div>
-    </div>*/
+    </div>
 
     <!-- ================= EDUCATION ================= -->
     <h2 class="section-title"><span class="bar"></span>Education &amp; Certifications<span class="rest"></span></h2>
